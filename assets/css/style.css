@@ -14,7 +14,11 @@ body {
     background-color: #000000;
 }
 
-header {
+h1 {
+    font-size: 6rem;
+}
+
+#hero-section {
     background-image: url(../img/bg-hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,10 +28,17 @@ header {
     position: relative;
 }
 
-h1 {
-    font-size: 6rem;
+#hero-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* NavBar */
 #navBar-section {
     background-color: transparent !important;
 }
@@ -45,16 +56,8 @@ nav img {
     width: 8rem;
 }
 
-#hero-section:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-}
 
+/* Barra de busqueda */
 #search-section {
     position: absolute;
     bottom: 8rem;
@@ -71,10 +74,14 @@ nav img {
     font-weight: 700;
 }
 
+/* Section Información superHero API */
 .card {
     background-color: rgba(22, 22, 22, 0.6);
     color: #ffffff;
     width: 26.6;
+}
+.card-body {
+    margin-left: 1.5rem;
 }
 
 #hero-info h6 {
@@ -83,15 +90,13 @@ nav img {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.card-body {
-    margin-left: 1.5rem;
-}
-
+/* Section CanvasJS*/
 #hero-stats {
     height: 21.9rem !important;
     color: #FFFFFF !important;
 }
 
+/* MQ para dispositivos hasta 768px (responsividad) */
 @media(max-width: 768px) {
     #navBar-section {
         background-color: rgba(22, 22, 22, 0.92) !important;
