@@ -1,20 +1,19 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("#superHero-input").on('input', function (evt) {
-		$(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-	})
+    $("#superHero-input").on('input', function(evt) {
+        $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    })
 
-    $("#form-superHero").submit(function (e) {
+    $("#form-superHero").submit(function(e) {
         e.preventDefault();
 
         let valueInput = $("#superHero-input").val();
 
-
-        if(valueInput > 0 && valueInput < 733){
+        if (valueInput > 0 && valueInput < 733) {
             $.ajax({
 
                 url: "https://superheroapi.com/api.php/2957577794560794/" + valueInput,
-                success: function (data) {
+                success: function(data) {
                     console.log(data);
                     let img = data.image.url;
                     let name = data.name;
@@ -26,12 +25,12 @@ $(document).ready(function () {
                     let height = data.appearance.height;
                     let weight = data.appearance.weight;
                     let aliases = data.biography.aliases;
-    
+
                     $("#hero-info").html(`
                   <div id="superHero-card" class="card mb-3" style="max-width: 54rem;">
                   <div class="row g-0">
                       <div class="col-md-4">
-                          <img src=${img}>
+                          <img src=${img} class="card-img-top" style="height: 100%">
                       </div>
                       <div class="col-md-8">
                           <div class="card-body">
@@ -50,19 +49,19 @@ $(document).ready(function () {
                   </div>
               </div>            
               `);
-    
+
                     let dataPowerstats = data.powerstats;
                     let heroStats = [];
-    
+
                     for (property in dataPowerstats) {
                         heroStats.push({
                             label: property,
                             y: dataPowerstats[property],
                         });
                     };
-    
+
                     let config = {
-                        backgroundColor: "rgb(0, 0, 0, 0.6)",
+                        backgroundColor: "#000000",
                         textColor: "#FFFFFF",
                         animationEnabled: true,
                         title: {
@@ -72,23 +71,21 @@ $(document).ready(function () {
                         legend: {
                             fontColor: "#FFFFFF",
                         },
-                        data: [
-                            {
-                                type: "pie",
-                                showInLegend: true,
-                                legendText: "{label}",
-                                dataPoints: heroStats,
-                                indexLabelFontColor: "#FFFFFF",
-                                indexLabel: "{label} - {y}"
-                            },
-                        ],
+                        data: [{
+                            type: "pie",
+                            showInLegend: true,
+                            legendText: "{label}",
+                            dataPoints: heroStats,
+                            indexLabelFontColor: "#FFFFFF",
+                            indexLabel: "{label} - {y}"
+                        }, ],
                     };
                     var chart = new CanvasJS.Chart("hero-stats", config);
                     chart.render();
                 }
             });
-        }else{
+        } else {
             alert("El número ingresado debe ser entre 1 y 732")
-        }     
+        }
     });
 });
