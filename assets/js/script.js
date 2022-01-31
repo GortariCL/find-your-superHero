@@ -6,9 +6,16 @@ $(document).ready(function () {
         $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     })
 
+    $(function(){
+        $('#superhero-info').hide();
+        $('button').on('click', function (e) {
+            $('#superhero-info').show();
+        });
+    });  
+
     //Inicio de la función para muestra de datos
     $("#form-superHero").submit(function (e) {
-        e.preventDefault();
+        e.preventDefault();        
 
         let valueInput = $("#superHero-input").val();
         //Validación de que el número ingresado sea entre la cantidad de personajes
@@ -92,6 +99,7 @@ $(document).ready(function () {
         //Alert en caso de que el número ingresado no se encuentre dentro de los parametros
         }else {
             alert("El número ingresado debe ser entre 1 y 732");
+            $('#superhero-info').hide(300);
         };
     });
 });
