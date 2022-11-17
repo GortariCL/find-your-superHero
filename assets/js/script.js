@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         let valueInput = $("#superHero-input").val();
         //Validación de que el número ingresado sea entre la cantidad de personajes
-        if (valueInput > 0 && valueInput < 733) {
+        if (valueInput !== typeof string) {
             //Solicitud hacia la API
             $.ajax({
 
