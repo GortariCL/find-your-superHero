@@ -23,7 +23,7 @@ $(document).ready(function () {
             //Solicitud hacia la API
             $.ajax({
 
-                url: "https://superheroapi.com/api.php/138872745600547/" + valueInput,
+                url: "https://superheroapi.com/api/138872745600547/" + valueInput,
                 success: function (data) {
                     console.log(data);
                     //Obtención de datos desde la API
