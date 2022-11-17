@@ -2,9 +2,9 @@
 $(document).ready(function () {
 
     //Validación de input Solo deja ingresar números
-    $("#superHero-input").on('input', function (evt) {
-        $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    })
+//     $("#superHero-input").on('input', function (evt) {
+//         $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+//     })
 
     $(function(){
         $('#superhero-info').hide();
