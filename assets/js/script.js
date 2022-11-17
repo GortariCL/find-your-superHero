@@ -1,10 +1,10 @@
 //DOM listo para iniciar
 $(document).ready(function () {
 
-    //Validación de input Solo deja ingresar números
-//     $("#superHero-input").on('input', function (evt) {
-//         $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-//     })
+    Validación de input Solo deja ingresar números
+    $("#superHero-input").on('input', function (evt) {
+        $(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    })
 
     $(function(){
         $('#superhero-info').hide();
@@ -19,11 +19,11 @@ $(document).ready(function () {
 
         let valueInput = $("#superHero-input").val();
         //Validación de que el número ingresado sea entre la cantidad de personajes
-        if (valueInput) {
+        if (valueInput > 0 && valueInput ) {
             //Solicitud hacia la API
             $.ajax({
 
-                url: "https://superheroapi.com/api.php/138872745600547/search/" + valueInput,
+                url: "https://superheroapi.com/api/138872745600547/search/" + valueInput,
                 success: function (data) {
                     console.log(data);
                     //Obtención de datos desde la API
